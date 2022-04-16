@@ -8,6 +8,23 @@ func main() {
 	fmt.Println(mom.Hello())
 	fmt.Println(kid.Hello())
 	fmt.Println(kid.Unchi())
+
+	hs := []Helloer{
+		newMom("母"),
+		newKid("たらこ", "おかめ"),
+	}
+
+	for _, h := range hs {
+		fmt.Println(Sing(h))
+	}
+}
+
+type Helloer interface {
+	Hello() string
+}
+
+func Sing(h Helloer) string {
+	return h.Hello() + " 歌っている表現を入れる"
 }
 
 type Mom struct {
