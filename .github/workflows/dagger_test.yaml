@@ -3,6 +3,10 @@ on:
   push:
     branches:
       - master
+env:
+  # This needs to be unique across all of netlify.app
+  APP_NAME: todoapp-dagger-europa
+  NETLIFY_TEAM: dagger
 jobs:
 
   build:
@@ -36,3 +40,6 @@ jobs:
           cmds: |
             project update
             do deploy
+        env:
+          # Get one from https://app.netlify.com/user/applications/personal
+          NETLIFY_TOKEN: ${{ secrets.NETLIFY_TOKEN }}
