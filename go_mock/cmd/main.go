@@ -6,6 +6,6 @@ import (
 )
 
 func main() {
-	opt := calc.NewSelectedOption()
+	opt := calc.NewSelectedOption(calc.SelectedOption{})
 	fmt.Println(opt.Sum(123, 98))
 }
